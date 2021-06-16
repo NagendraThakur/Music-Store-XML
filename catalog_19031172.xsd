@@ -1,0 +1,184 @@
+<!--
+  Developer: Nagendra Thakur Sharma
+  Date: 5/2/2021
+-->
+<!-- Salami Slice  -->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="singer_first_name" type="xs:string"/>
+  <xs:element name="singer_last_name" type="xs:string"/>
+  <xs:element name="director_first_name" type="xs:string"/>
+  <xs:element name="director_last_name" type="xs:string"/>
+  <xs:element name="producer_first_name" type="xs:string"/>
+  <xs:element name="producer_last_name" type="xs:string"/>
+  <xs:element name="writer_first_name" type="xs:string"/>
+  <xs:element name="writer_last_name" type="xs:string"/>
+  <xs:element name="genre">
+
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:string" name="category" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+
+  </xs:element>
+  <xs:element name="band" type="xs:string"/>
+  <xs:element name="song_name" type="xs:string"/>
+  <xs:element name="video">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:string" name="available" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="awards">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:string" name="won1" use="optional"/>
+          <xs:attribute type="xs:string" name="won2" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="IMVD_rating">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute ref="scale" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="lead_singer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="singer_first_name"/>
+        <xs:element ref="singer_middle_name" minOccurs="0"/>
+        <xs:element ref="singer_last_name"/>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="title" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="director">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="director_first_name"/>
+        <xs:element ref="director_middle_name" minOccurs="0"/>
+        <xs:element ref="director_last_name"/>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="title" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="producer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="producer_first_name"/>
+        <xs:element ref="producer_middle_name" minOccurs="0"/>
+        <xs:element ref="producer_last_name"/>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="title" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="writer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="writer_first_name"/>
+        <xs:element ref="writer_middle_name" minOccurs="0"/>
+        <xs:element ref="writer_last_name"/>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="title" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="price" type="xs:int"/>
+  <xs:element name="released_date" type="xs:date"/>
+  <xs:element name="comment" type="xs:string"/>
+  <xs:element name="singer_middle_name" type="xs:string"/>
+  <xs:element name="director_middle_name" type="xs:string"/>
+  <xs:element name="producer_middle_name" type="xs:string"/>
+  <xs:element name="writer_middle_name" type="xs:string"/>
+
+  <xs:attribute name="song_id">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:pattern value="[A][0-9][0-9]"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+
+  <xs:attribute name="scale">
+    <xs:simpleType>
+      <xs:restriction base="xs:short">
+        <xs:pattern value="[0-9]"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+
+  <xs:element name="song">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="genre"/>
+        <xs:element ref="band"/>
+        <xs:element ref="song_name"/>
+        <xs:element ref="video" minOccurs="0"/>
+        <xs:element ref="awards" minOccurs="0"/>
+        <xs:element ref="IMVD_rating" minOccurs="0"/>
+        <xs:element ref="lead_singer"/>
+        <xs:element ref="director"/>
+        <xs:element ref="producer"/>
+        <xs:element ref="writer"/>
+        <xs:element ref="price"/>
+        <xs:element ref="released_date"/>
+        <xs:element ref="comment" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute ref="song_id" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="name" type="xs:string"/>
+  <xs:element name="address" type="xs:string"/>
+  <xs:element name="telephone_number">
+      <xs:simpleType>
+        <xs:restriction base="xs:int">
+          <xs:pattern value="[0][2][1][0-9][0-9][0-9][0-9][0-9]"/>
+        </xs:restriction>
+      </xs:simpleType>
+  </xs:element>
+
+  <xs:element name="email_address" type="xs:string"/>
+  <xs:element name="website_address" type="xs:anyURI"/>
+  <xs:element name="logo" type="xs:string"/>
+  <xs:element name="songs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="song" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="musical_store">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="name"/>
+        <xs:element ref="address"/>
+        <xs:element ref="telephone_number"/>
+        <xs:element ref="email_address"/>
+        <xs:element ref="website_address"/>
+        <xs:element ref="logo"/>
+        <xs:element ref="songs"/>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="xsinoNamespaceSchemaLocation"/>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

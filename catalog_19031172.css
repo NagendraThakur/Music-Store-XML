@@ -1,0 +1,131 @@
+/*
+	Developer: Nagendra Thakur Sharma
+	Date: 5/4/2021
+*/
+
+name{
+	display:block;
+	font-weight:bolder;
+	text-align:center;
+	font-size:70px;
+	background-color: maroon;
+	color: white;
+}
+
+logo{
+	background-image: url(Universal_Musical_Store_logo.png);
+	border-radius: 60px;
+	background-position: center;
+	position: absolute;
+	left: 10px;
+	top: 1px;
+	font-size: 500px;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	text-align: justify;
+	width: 20%;
+	height:11%;
+}
+
+songs{
+	font-size:120%;
+	margin:0.5em;
+	font-family: Times New Roman;
+	display:block;
+}
+
+song{
+	display:block; 
+	border: 1px solid silver;
+	height: 300px;
+	width: 334px;
+	margin:0.5em; 
+	padding:0.5em;
+	background-color:rgb(245, 245, 245);
+	float: left;
+	transition: transform .2s;
+}
+song:hover{
+	transform: scale(1.1);
+}
+
+address, telephone_number, email_address, website_address {
+	display: block;
+	padding-left: 84%;
+}
+
+address:before{
+	content: "Address: ";
+	display: list-item;
+}
+
+telephone_number:before{
+	content: "Telephone Number: ";
+	display: list-item;
+}
+
+email_address:before{
+	content: "Email Address: ";
+	display: list-item;
+}
+
+website_address:before{
+	content: "Web Address: ";
+	display: list-item;
+}
+
+genre:before{
+	color: maroon;
+	font-weight: bold;
+	text-decoration-line: underline;
+	content: ""attr(category)"";
+	font-size:20px;
+	padding-left: 25%;
+}
+
+band, song_name, price, released_date, comment, lead_singer, director, producer, writer{
+	display: block;
+}
+
+band:before{
+	content: "Band Name: ";
+}
+
+video:before{
+	content: "video: "attr(available)"";
+}
+
+awards:before{
+	content: "Award won: "attr(won1) " "attr(won2)"";
+	display:block;
+}
+IMVD_rating:before{
+	content: "IMVD_rating: "attr(scale)"";
+	display:block;
+}
+
+lead_singer:before{
+	content: "lead singer: "attr(title)"";
+}
+director:before{
+	content: "Director: "attr(title)"";
+}
+producer:before{
+	content: "Producer: "attr(title)"";
+}
+writer:before{
+	content: "Writer: "attr(title)"";
+}
+price:before{
+	content:"Price: "; 
+}
+comment:before{
+	content: "Comment: ";
+}
+song_name:before{
+	content: "Song Name: "
+}
+released_date:before{
+	content: "Released Date: "
+}

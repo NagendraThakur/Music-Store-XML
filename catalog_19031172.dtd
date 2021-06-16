@@ -1,0 +1,60 @@
+<!--
+	Developer: Nagendra Thakur Sharma
+	Date: 5/3/2021
+-->
+<!-- Elements validation -->
+<!ELEMENT musical_store (name,address,telephone_number,email_address,website_address,logo,songs)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT address (#PCDATA)>
+<!ELEMENT telephone_number (#PCDATA)>
+<!ELEMENT email_address (#PCDATA)>
+<!ELEMENT website_address (#PCDATA)>
+<!ELEMENT logo (#PCDATA)>
+<!ELEMENT songs (song+)>
+<!ELEMENT song (genre,band,song_name,video?,awards?,IMVD_rating?,lead_singer,director,producer,writer,price,released_date,comment?)>
+<!ELEMENT genre EMPTY>
+<!ELEMENT video EMPTY>
+<!ELEMENT awards EMPTY>
+<!ELEMENT IMVD_rating EMPTY>
+<!ELEMENT band (#PCDATA)>
+<!ELEMENT song_name (#PCDATA)>
+<!ELEMENT lead_singer (singer_first_name,singer_middle_name?,singer_last_name)>
+<!ELEMENT singer_first_name (#PCDATA)>
+<!ELEMENT singer_middle_name (#PCDATA)>
+<!ELEMENT singer_last_name (#PCDATA)>
+<!ELEMENT director (director_first_name,director_middle_name?,director_last_name)>
+<!ELEMENT director_first_name (#PCDATA)>
+<!ELEMENT director_middle_name (#PCDATA)>
+<!ELEMENT director_last_name (#PCDATA)>
+<!ELEMENT producer (producer_first_name,producer_middle_name?,producer_last_name)>
+<!ELEMENT producer_first_name (#PCDATA)>
+<!ELEMENT producer_middle_name (#PCDATA)>
+<!ELEMENT producer_last_name (#PCDATA)>
+<!ELEMENT writer (writer_first_name,writer_middle_name?,writer_last_name)>
+<!ELEMENT writer_first_name (#PCDATA)>
+<!ELEMENT writer_middle_name (#PCDATA)>
+<!ELEMENT writer_last_name (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+<!ELEMENT released_date (#PCDATA)>
+<!ELEMENT comment (#PCDATA)>
+<!-- Attributes validation -->
+<!ATTLIST song
+ song_id CDATA #REQUIRED>
+<!ATTLIST genre
+        category (Rock | Progressive_Metal | Alt_Metal | Classic_Metal | Pop | Noe_Folk | Indie | Classic_Rock | Country_Music | Jazz | Psycheldelic_Rock) #REQUIRED>
+<!ATTLIST video 
+        available (yes) #IMPLIED>
+<!ATTLIST awards
+        won1 (grammy) #IMPLIED>
+<!ATTLIST awards
+        won2 (JUNOS) #IMPLIED>
+<!ATTLIST IMVD_rating
+        scale CDATA #IMPLIED>
+<!ATTLIST lead_singer
+        title (Mr. | Mrs.) #REQUIRED>
+<!ATTLIST director
+        title (Mr. | Mrs.) #REQUIRED>
+<!ATTLIST producer
+        title (Mr. | Mrs.) #REQUIRED>
+<!ATTLIST writer
+        title (Mr. | Mrs.) #REQUIRED>
